@@ -1,0 +1,7 @@
+SELECT c.CustomerID, c.CustomerName, SUM(o.TotalAmount)AS ‘Total Order Amount’
+FROM Orders o
+JOIN Customers c
+	ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID
+ORDER BY YEAR(o.OrderDate), MONTH(o.OrderDate), SUM(o.TotalAmount) DESC
+LIMIT 3;

@@ -1,0 +1,8 @@
+UPDATE Customers 
+SET c.City = ‘New York’
+FROM Customers c 
+JOIN Orders o
+		ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerName
+HAVING c.City = ‘London’
+AND COUNT(o.OrderID) >= 1;

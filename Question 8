@@ -1,0 +1,4 @@
+SELECT ProductID, Count(*) as ‘Count of Reviews’, AVG(Rating) AS ‘Average Rating’
+FROM ProductReviews
+GROUP BY ProductID
+ORDER BY AVG(Rating) DESC;

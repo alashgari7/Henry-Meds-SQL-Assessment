@@ -1,0 +1,7 @@
+SELECT  c.CustomerID, c.CustomerName, SUM(o.TotalAmount) as ‘Total Order Amount’
+FROM Orders o
+JOIN Customers c
+	ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID
+ORDER BY SUM(o.TotalAmount) DESC
+LIMIT 5;

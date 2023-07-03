@@ -1,6 +1,6 @@
-SELECT c.CustomerName, COUNT(*) AS ‘Total Number of Orders’
+SELECT c.CustomerID, c.CustomerName, COUNT(*) AS ‘Total Number of Orders’
 FROM Orders o 
 JOIN Customers c 
 	ON c.CustomerID = o.CustomerID
-GROUP BY c.CustomerName
+GROUP BY c.CustomerID
 ORDER BY COUNT(*) DESC;

@@ -1,6 +1,10 @@
-SELECT TOP 3 c.CustomerID, c.CustomerName, SUM(o.TotalAmount)AS ‘Total Order Amount’
-FROM Orders o
+SELECT TOP 3 t.CustomerID, t.CustomerName, SUM(t.TotalAmount)AS ‘Total Order Amount’
+FROM
+(SELECT c.CustomerID, c.CustomerName, SUM(o.TotalAmount) AS 'Total Order Amount'
+Orders o
 JOIN Customers c
 	ON c.CustomerID = o.CustomerID
+WHERE o.OrderDate >= DATEADD(M,-3,GETDATE()) 
 GROUP BY c.CustomerID
-ORDER BY YEAR(o.OrderDate), MONTH(o.OrderDate), SUM(o.TotalAmount) DESC;
+) AS t
+ORDER BY SUM(t.TotalAmount) DESC;

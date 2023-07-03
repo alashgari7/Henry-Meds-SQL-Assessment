@@ -1,4 +1,4 @@
-SELECT c.CustomerName, MAX(t.count_of_orders)
+SELECT t.CustomerName, MAX(t.count_of_orders)
 FROM 
 
 (SELECT COUNT(*) AS 'count_of_orders'

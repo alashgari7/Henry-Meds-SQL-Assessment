@@ -1,4 +1,4 @@
 SELECT ProductID, ProductName, YEAR(OrderDate) AS ‘Year’ , MONTH(OrderDate) AS ‘Month’, SUM(TotalAmount) as ‘Monthly Amount’, (SUM(TotalAmount)-LAG(SUM(TotalAmount) ) OVER (ORDER BY OrderDate ASC))/LAG(SUM(TotalAmount) OVER(ORDER BY OrderDate ASC) *100 as ‘Revenue Percentage Growth’
 FROM Orders
 GROUP BY ProductID, Year, Month
-ORDER BY ProductID
+ORDER BY ProductID, Year, Month ASC;

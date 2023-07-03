@@ -1,0 +1,4 @@
+SELECT MONTH(OrderDate) AS ‘Month’ , YEAR(OrderDate) AS ‘Year’, SUM(UnitsSold) AS ‘Total Units Sold’
+FROM Orders
+GROUP BY Year, Month
+ORDER BY Year, Month ASC;

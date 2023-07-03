@@ -1,5 +1,11 @@
-SELECT c.CustomerName, MAX(COUNT(*))
-FROM Orders
+SELECT c.CustomerName, MAX(t.count_of_orders)
+FROM 
+
+(SELECT COUNT(*) AS 'count_of_orders'
+FROM Order o
 JOIN Customers c  
 	ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerName
+) AS t
+
 GROUP BY c.CustomerName;

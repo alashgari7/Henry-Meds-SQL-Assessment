@@ -5,5 +5,4 @@ FROM Order o
 JOIN Customers c  
 	ON c.CustomerID = o.CustomerID
 GROUP BY c.CustomerName
-) AS t
-GROUP BY c.CustomerName;
+) AS t;
